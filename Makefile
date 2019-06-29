@@ -7,8 +7,6 @@ default: up
 DRUPAL_ROOT ?= /var/www/html/web
 
 up:
-	@echo "Updating local settings for $(PROJECT_NAME)..."
-	ln -f env/settings.local.php $(DRUPAL_ROOT)/sites/default/
 	@echo "Starting up containers for $(PROJECT_NAME)..."
 	docker-compose up -d --remove-orphans
 
