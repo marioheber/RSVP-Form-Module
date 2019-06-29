@@ -251,7 +251,7 @@ $databases = [];
  *   ];
  * @endcode
  */
-$config_directories = [];
+$config_directories['sync'] = '../config/sync';
 
 /**
  * Settings:
@@ -280,7 +280,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'kbzmuKZ7tod_CzwTZNFYC6hRr0-6JNaKTIriBKVHnAfwU7YbN5Sz2uL0s8-GhU3N0IbTtvOeKg';
 
 /**
  * Deployment identifier.
@@ -728,6 +728,9 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+$settings['trusted_host_patterns'] = [
+  '^rsvp\.localhost$',
+];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -773,6 +776,16 @@ $settings['entity_update_backup'] = TRUE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
+// if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+//   include $app_root . '/' . $site_path . '/settings.local.php';
+// }
+$databases['default']['default'] = array (
+  'database' => 'drupal',
+  'username' => 'drupal',
+  'password' => 'drupal',
+  'prefix' => '',
+  'host' => 'mariadb',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);

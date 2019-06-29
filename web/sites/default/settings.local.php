@@ -171,6 +171,4 @@ $databases['default']['default'] = [
   'driver' => 'mysql',
 ];
 
-$config_directories['sync'] = '../config/sync';
-
 
