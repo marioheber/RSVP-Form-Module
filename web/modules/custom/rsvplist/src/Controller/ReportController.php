@@ -26,7 +26,7 @@ class ReportController extends ControllerBase {
     $select->addField('r', 'name');
     $select->addField('n', 'title');
     $select->addField('r', 'mail');
-    $select->addField('r', 'attendee_list_hidden');
+    $select->addField('r', 'hidden');
     $entries = $select->execute()->fetchAll(\PDO::FETCH_ASSOC);
     return $entries;
   }

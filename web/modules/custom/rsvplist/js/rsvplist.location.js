@@ -32,7 +32,7 @@
             // If the user is within a 20 miles radius from the event location
             // show the RSVP form.
             if (distanceBetweenUserEvent < 20) {
-              $(".rsvplist-email-form").show();
+              $(".rsvplist-form").show();
             }
           },
 

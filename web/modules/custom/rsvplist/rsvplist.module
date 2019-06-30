@@ -19,7 +19,7 @@ function rsvplist_preprocess_node(&$variables) {
     $nid = $node->id();
     $select = Database::getConnection()->select('rsvplist', 'r');
     $select->addField('r', 'name');
-    $select->condition('attendee_list_hidden', 0);
+    $select->condition('hidden', 0);
     $select->condition('nid', $nid);
     $entries = $select->execute()->fetchAll(\PDO::FETCH_ASSOC);
 

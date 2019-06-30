@@ -50,8 +50,7 @@ class RSVPForm extends FormBase {
       '#description' => t("We'll send updates to the email address you provide."),
       '#required' => TRUE,
     );
-
-    $form['attendee_list_hidden'] = array(
+    $form['hidden'] = array(
       '#type' => 'checkbox',
       '#description' => t("Hidden your name in list of attendees on the event page."),
       '#return_value' => TRUE,
@@ -84,23 +83,20 @@ class RSVPForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
 
     $query = \Drupal::database()->insert('rsvplist');
     $query->fields(array(
         'name',
         'mail',
         'nid',
-        'attendee_list_hidden',
-        'uid',
+        'hidden',
         'created',
     ));
     $query->values(array(
         $form_state->getValue('name'),
         $form_state->getValue('email'),
         $form_state->getValue('nid'),
-        $form_state->getValue('attendee_list_hidden'),
-        $user->id(),
+        $form_state->getValue('hidden'),
         time(),
       )
     );
@@ -108,6 +104,9 @@ class RSVPForm extends FormBase {
 
   }
 
+  /**
+   * @todo Implement Ajax validations.
+   */
   public function setMessage(array $form, FormStateInterface $form_state) {
 
     $response = new AjaxResponse();

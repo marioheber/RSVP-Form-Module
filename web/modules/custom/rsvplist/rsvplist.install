@@ -27,11 +27,12 @@ function rsvplist_schema() {
         'not null' => FALSE,
         'default' => '',
       ),
-      'attendee_list_hidden' => array(
-        'description' => 'Attendee hidden from events page.',
-        'type' => 'boolean',
+      'hidden' => array(
+        'description' => 'Boolean indicating hidded or not this user from attendee list in events page..',
+        'type' => 'int',
+        'size' => 'small',
         'not null' => FALSE,
-        'default' => '',
+        'default' => 0,
       ),
       'mail' => array(
         'description' => 'User\'s email address.',
@@ -50,7 +51,7 @@ function rsvplist_schema() {
     'primary key' => array('id'),
     'indexes' => array(
       'node' => array('nid'),
-      'node_user' => array('nid', 'uid'),
+      'node_user' => array('nid'),
     ),
   );
   return $schema;
