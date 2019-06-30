@@ -1,0 +1,7 @@
+rsvplist.location:
+  version: VERSION
+  js:
+    js/rsvplist.location.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

@@ -1,0 +1,21 @@
+rsvplist.admin_settings:
+  path: '/admin/config/content/rsvplist'
+  defaults:
+    _form: '\Drupal\rsvplist\Form\RSVPSettingsForm'
+    _title: 'RSVP List Settings'
+  requirements:
+    _permission: 'administer rsvplist'
+rsvplist.report:
+  path: '/admin/reports/rsvplist'
+  defaults:
+    _controller: '\Drupal\rsvplist\Controller\ReportController::report'
+    _title: 'List of RSVPs'
+  requirements:
+    _permission: 'administer rsvplist'
+rsvplist.ajax_submit_form:
+  path: 'ajax-form-submit'
+  defaults:
+    _form:  '\Drupal\rsvplist\Form\RSVPForm'
+    _title: 'Ajax Submit Form'
+  requirements:
+    _permission: 'access content'

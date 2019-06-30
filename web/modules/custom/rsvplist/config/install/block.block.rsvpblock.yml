@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - rsvplist
+    - user
+  theme:
+    - bartik
+id: rsvpblock
+theme: bartik
+region: sidebar_first
+weight: -7
+provider: null
+plugin: rsvp_block
+settings:
+  id: rsvp_block
+  label: 'RSVP Block'
+  provider: rsvplist
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
