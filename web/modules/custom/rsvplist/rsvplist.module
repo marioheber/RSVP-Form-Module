@@ -48,6 +48,8 @@ function rsvplist_preprocess_node(&$variables) {
 
 /**
  * Implements HOOK_preprocess_block() for block templates.
+ *
+ * RSVP Menu block Hidden by default.
  */
 function rsvplist_preprocess_block( array &$variables) {
   $block_id = $variables['elements']['#id'];
